@@ -1,7 +1,4 @@
 <?php echo $header; ?>
-<?php if ($error_warning) { ?>
-<div class="warning"><?php echo $error_warning; ?></div>
-<?php } ?>
 
 <div id="content">
   <div class="breadcrumb">
@@ -14,7 +11,7 @@
   <?php } ?>
   <div class="box">
   <div class="heading">
-      <h1><img src="view/image/zibal.png" alt="" /> <?php echo $heading_title; ?></h1>
+      <h1><img src="view/image/payment.png" alt="" /> <?php echo $heading_title; ?></h1>
       <div class="buttons"><a onclick="$('#form').submit();" class="button"><span><?php echo $button_save; ?></span></a><a onclick="location = '<?php echo $cancel; ?>';" class="button"><span><?php echo $button_cancel; ?></span></a></div>
     </div>
     
@@ -44,7 +41,7 @@
           </select></td>
       </tr>
         <tr>
-            <td>زیبال دایرکت (درگاه مستقیم)</td>
+            <td><?php echo $entry_zibal_direct; ?></td>
             <td><select name="zibal_direct">
                     <?php if ($zibal_direct) { ?>
                     <option value="1" selected="selected"><?php echo $text_enabled; ?></option>

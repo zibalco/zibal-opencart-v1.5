@@ -4,10 +4,10 @@ class ControllerPaymentZibal extends Controller {
 	private $error = array(); 
 
 	public function index() {
-		$this->load->language('payment/zibal');
+		$this->language->load('payment/zibal');
 
 
-		$this->document->setTitle = $this->language->get('heading_title');
+		$this->document->setTitle($this->language->get('heading_title'));
 		
 		$this->load->model('setting/setting');
 			
@@ -56,21 +56,21 @@ class ControllerPaymentZibal extends Controller {
 
 		//$this->document->breadcrumbs = array();
         $this->data['breadcrumbs'] = array();
-   	$this->document->breadcrumbs[] = array(
+   	$this->data['breadcrumbs'][] = array(
        		//'href'      => $this->url->https('common/home'),
 			'href'      => $this->url->link('common/home', 'token=' . $this->session->data['token'], 'SSL'),
        		'text'      => $this->language->get('text_home'),
       		'separator' => FALSE
    		);
 
-   		$this->document->breadcrumbs[] = array(
+   		$this->data['breadcrumbs'][] = array(
        		//'href'      => $this->url->https('extension/payment'),
 			'href'      => $this->url->link('extension/payment', 'token=' . $this->session->data['token'], 'SSL'),
        		'text'      => $this->language->get('text_payment'),
       		'separator' => ' :: '
    		);
 
-   		$this->document->breadcrumbs[] = array(
+   		$this->data['breadcrumbs'][] = array(
        		//'href'      => $this->url->https('payment/sb24'),
 			'href'      => $this->url->link('payment/zibal', 'token=' . $this->session->data['token'], 'SSL'),
        		'text'      => $this->language->get('heading_title'),
@@ -97,9 +97,9 @@ class ControllerPaymentZibal extends Controller {
 
 
         if (isset($this->request->post['zibal_direct'])) {
-            $data['zibal_direct'] = $this->request->post['zibal_direct'];
+            $this->data['zibal_direct'] = $this->request->post['zibal_direct'];
         } else {
-            $data['zibal_direct'] = $this->config->get('zibal_direct');
+            $this->data['zibal_direct'] = $this->config->get('zibal_direct');
         }
 
 
@@ -135,7 +135,7 @@ class ControllerPaymentZibal extends Controller {
 			$this->error['warning'] = $this->language->get('error_permission');
 		}
 		
-		if (!$this->request->post['zibal_PIN']) {
+		if (empty($this->request->post['zibal_PIN'])) {
 			$this->error['PIN'] = $this->language->get('error_PIN');
 		}
 

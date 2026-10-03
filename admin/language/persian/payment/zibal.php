@@ -15,7 +15,7 @@ $_['entry_PIN']   		  = 'کد مرچنت درگاه';
 $_['entry_order_status']  = 'وضعیت سفارش';
 $_['entry_status']        = 'وضعیت';
 $_['entry_sort_order']    = 'ترتیب';
-$_['entry_zibal_direct']    = 'درگاه مستقیم (زیبال دایرکت)';
+$_['entry_zibal_direct']    = 'زیبال دایرکت (درگاه مستقیم)';
 
 // Error
 $_['error_permission']    = 'هشدار شما اجازه ویرایش ماژول زیبال را ندارید!';
