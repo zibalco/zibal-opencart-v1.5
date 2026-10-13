@@ -1,5 +1,7 @@
 <?php
 class ControllerPaymentZibal extends Controller {
+    const PLUGIN_VERSION = '1.0.0';
+
     protected function index() {
         $this->language->load('payment/zibal');
         $this->data['button_confirm'] = $this->language->get('button_confirm');
@@ -421,6 +423,7 @@ class ControllerPaymentZibal extends Controller {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+        curl_setopt($ch, CURLOPT_USERAGENT, 'ZibalOpenCart/' . self::PLUGIN_VERSION . ' (OpenCart ' . (defined('VERSION') ? VERSION : '1.5') . '; PHP ' . PHP_VERSION . ')');
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($parameters));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
